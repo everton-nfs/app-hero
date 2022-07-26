@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,26 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('user/{user}', function(\App\Models\User $user){
-//     dd($user);
-//     return $user;
-// });
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/product', [ProductController::class, 'show']);
 
-// Route::prefix('usuarios')->group(function(){
-//     Route::get('',function(){
-//         return 'usuario';
-//     })->name('usuarios');
-//     Route::get('/{id}',function(){
-//         return 'Mostrar detalhes';
-//     })->name('usuariosDetalhes');
-//     Route::get('/{id}/tags',function(){
-//         return 'Tags do usuário';
-//     })->name('usuariosTags');
-// });
-
-Route::get('user/{user}', [UserController::class, 'show'])->name('user.show');
-Route::get('users', [UserController::class, 'index'])->name('user.index');
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+//Admin
+Route::get('/admin/products', [AdminProductController::class, 'index']);
+Route::get('/admin/products/edit', [AdminProductController::class, 'edit']);
