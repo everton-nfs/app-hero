@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('user/{user}', function(\App\Models\User $user){
+//     dd($user);
+//     return $user;
+// });
+
+// Route::prefix('usuarios')->group(function(){
+//     Route::get('',function(){
+//         return 'usuario';
+//     })->name('usuarios');
+//     Route::get('/{id}',function(){
+//         return 'Mostrar detalhes';
+//     })->name('usuariosDetalhes');
+//     Route::get('/{id}/tags',function(){
+//         return 'Tags do usuário';
+//     })->name('usuariosTags');
+// });
+
+Route::get('user/{user}', [UserController::class, 'show'])->name('user.show');
+Route::get('users', [UserController::class, 'index'])->name('user.index');
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
