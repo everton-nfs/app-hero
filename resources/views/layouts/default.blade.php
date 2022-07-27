@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h2>AppHero - Navbar</h2>
+        <a href="/"><h2>AppHero - Navbar</h2></a>
     </header>
 
     @yield('content')
