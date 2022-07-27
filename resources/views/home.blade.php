@@ -1,37 +1,19 @@
 @extends('layouts.default')
 @section('content')
     <section>
-        <div class="flex-grid-thirds">
-            <div class="col">
+        <div class="o-flex-grid w-100">
+            @foreach ($products as $product)
+            <div class="o-flex-grid--item">
                 <div class="card">
                     <div class="bg-img-fundo">
-                        <img src="{{ asset('img/batman.png') }}"/>
+                        <img src="{{ $product->cover }}"/>
                     </div>
-                    <p>Batman</p>
-                    <p>R$ <span>250</span></p>
-                    <a href="#">Ver mais</a>
+                    <p>{{ $product->name }}</p>
+                    <p><span>R$ </span>{{ $product->price }}</p>
+                    <a href="{{ route('product', $product->id) }}">Ver mais</a>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
-                    <div class="bg-img-fundo">
-                        <img src="{{ asset('img/homem-de-ferro.png') }}"/>
-                    </div>
-                    <p>Batman</p>
-                    <p>R$ <span>250</span></p>
-                    <a href="#">Ver mais</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="bg-img-fundo">
-                        <img src="{{ asset('img/wolverine.png') }}"/>
-                    </div>
-                    <p>Batman</p>
-                    <p>R$ <span>250</span></p>
-                    <a href="#">Ver mais</a>
-                </div>
-            </div>
-        </div> 
+            @endforeach
+        </div>
     </section>
 @endsection

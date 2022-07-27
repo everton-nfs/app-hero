@@ -2,27 +2,28 @@
 
 @section('content')
     <section>
-        <div class="flex-grid-thirds product">
-            <div class="col"> 
+        <div class="o-flex-grid w-100">
+            <div class="o-flex-grid--item">
                 <div class="card">
                     <div class="bg-img-fundo">
-                        <img src="{{ asset('img/batman.png') }}"/>
+                        <img src="{{ $product->cover }}"/>
                     </div>
                 </div>
             </div>
-            <div class="col"> 
+            <div class="o-flex-grid--item">
                 <div class="description">
-                    <h1>Batman</h1>
-                    <p>Descrição, descrição, descrição, descrição, descrição, descrição, descrição, descrição, 
-                        descrição, descrição, descrição, descrição, descrição, descrição, descrição, descrição,
-                        descrição, descrição, descrição, descrição, descrição, descrição, descrição, descrição,
-                        descrição, descrição, descrição, descrição, descrição, descrição, descrição, descrição.
-                    </p>
-                    <span>Em estoque</span>
+                    <h1>{{ $product->name }}</h1>
+                    <p>{{ $product->description }}</p>
+                    @if ($product->stock)
+                        <span>Em estoque</span>
+                    @else
+                        <span>Fora de estoque</span>
+                    @endif
                     <hr/>
-                    <h2><span>R$ </span>250</h2>
+                    <h2>R$ {{ $product->price }}</h2>
                 </div>
             </div>
+
         </div>
     </section>
 @endsection
