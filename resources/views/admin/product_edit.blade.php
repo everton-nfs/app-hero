@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <section>
-        <h1>Produtos</h1>
+        <h1>Editar produto</h1>
         <form action="#" method="#" class="form">
             <label for="nome_produto">Nome do produto:</label>
             <input type="text" id="nome_produto" nome="nome_produto"><br>

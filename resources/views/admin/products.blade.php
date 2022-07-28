@@ -4,7 +4,9 @@
     <section>
         <div class="add">
             <h1>Produtos</h1>
-            <button>Adicionar</button>
+            <a href="{{ route('admin.product.create')}}">
+                <button>Adicionar</button>
+            </a>
         </div>
         <div class="container">
             <table>
@@ -30,7 +32,7 @@
                         <td>{{ $product->stock }}</td>
                         <td class="acoes">
                             <div>
-                                <a href="#">Editar</a>
+                                <a href="{{ route('admin.product.edit', $product->id)}}">Editar</a>
                                 <a href="#">Deletar</a>
                             </div>
                         </td>
