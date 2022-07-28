@@ -9,14 +9,26 @@
 </head>
 <body>
     <header>
-        <a href="/"><h2>AppHero - Navbar</h2></a>
+        <div class="container navbar">
+            <a href="/"><h2>AppHero</h2></a>
+
+            <div>
+                <a href="{{ route('admin.product.create')}}">
+                    <button>Cadastrar</button>
+                </a>
+                <a href="{{ route('admin.products')}}">
+                    <button>Admin</button>
+                </a>
+            </div>
+
+        </div>
     </header>
 
     @yield('content')
 
-    <footer>
+    {{-- <footer>
         <h2>AppHero - Footer</h2>
-    </footer>
+    </footer> --}}
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

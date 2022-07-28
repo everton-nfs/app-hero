@@ -4,11 +4,9 @@
     <section>
         <div class="container">
             <div class="grid">
-                <div class="w6">
-                    <div class="card">
-                        <div class="bg-img-fundo">
-                            <img src="{{ $product->cover }}"/>
-                        </div>
+                <div class="w6 bg-img">
+                    <div class="bg-img-fundo">
+                        <img src="{{ \Illuminate\Support\Facades\Storage::url($product->cover) }}"/>
                     </div>
                 </div>
                 <div class="w6">

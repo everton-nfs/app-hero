@@ -2,11 +2,8 @@
 
 @section('content')
     <section>
-        <div class="add">
-            <h1>Produtos</h1>
-            <a href="{{ route('admin.product.create')}}">
-                <button>Adicionar</button>
-            </a>
+        <div class="container">
+            <h3 style="margin-top: unset;">Cadastrar produto</h3>
         </div>
         <div class="container">
             <table>
@@ -25,15 +22,15 @@
                     <tr>
                         <td>{{ $product->id }}</td>
                         <td class="img-table">
-                            <img src="{{ $product->cover }}">
+                            <img src="{{ \Illuminate\Support\Facades\Storage::url($product->cover) }}">
                         </td>
                         <td>{{ $product->name }}</td>
-                        <td>{{ $product->price }}</td>
+                        <td>R$ {{ $product->price }}</td>
                         <td>{{ $product->stock }}</td>
                         <td class="acoes">
                             <div>
                                 <a href="{{ route('admin.product.edit', $product->id)}}">Editar</a>
-                                <a href="#">Deletar</a>
+                                <a href="{{ route('admin.product.destroy', $product->id)}}">Deletar</a>
                             </div>
                         </td>
                     </tr>
