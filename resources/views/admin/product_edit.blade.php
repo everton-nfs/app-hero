@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <section>
-        <div class="container">
+        <div class="container text-white pt-5">
             <h3 style="margin-top: unset;">Editar produto</h3>
             <form enctype="multipart/form-data" method="POST" action="{{ route('admin.product.update', $product->id) }}"
                 class="form">
@@ -17,12 +17,14 @@
                 <input value="{{ $product->stock }}" type="text" id="stock" name="stock"><br>
 
                 <label for="cover">Imagem de capa:</label><br>
-                <input type="file" id="cover" name="cover"><br>
+                <input type="file" id="cover" name="cover"><br><br>
 
                 @if ($product->cover)
                     <img style="width: 5rem;" src="{{ \Illuminate\Support\Facades\Storage::url($product->cover) }}"
                         alt=""><br>
-                    <a href="{{ route('admin.product.destroyImage', $product->id) }}"><button>Deletar imagem</button></a><br><br>
+                    <a href="{{ route('admin.product.destroyImage', $product->id) }}">
+                        {{-- <button>Deletar imagem</button> --}}
+                    </a><br>
                 @endif
 
                 <label for="description" class="desc">Descrição</label><br>

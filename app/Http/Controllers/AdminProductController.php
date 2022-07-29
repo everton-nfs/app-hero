@@ -90,12 +90,12 @@ class AdminProductController extends Controller
         return Redirect::route('admin.products');
     }
 
-    public function destroyImage(Product $product)
-    {
-        Storage::delete($product->cover ?? '');
-        $product->cover = null;
-        $product->save();
+    // public function destroyImage(Product $product)
+    // {
+    //     Storage::delete($product->cover ?? '');
+    //     $product->cover = null;
+    //     $product->save();
 
-        return Redirect::back();
-    }
+    //     return Redirect::back();
+    // }
 }

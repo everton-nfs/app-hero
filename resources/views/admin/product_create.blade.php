@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <section>
-        <div class="container">
+        <div class="container text-white pt-5">
             <h3 style="margin-top: unset;">Cadastrar produto</h3>
             <form enctype="multipart/form-data" method="POST" action="{{ route('admin.product.store') }}" class="form">
                 @csrf
